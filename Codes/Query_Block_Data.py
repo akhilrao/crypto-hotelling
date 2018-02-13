@@ -1,3 +1,9 @@
+#This code is a combined scroller-scraper which extracts data for each block mined
+#folderPath is the path to the output folder where csv files for each day will be loaded
+#Relative path should hold, otherwise folderPath must be manually inputted
+#Code scrapes data from btc.com
+#Sometimes scraper connection may time out. In this case the date range in dates needs to be updated to last scraped day.
+
 import pandas as pd
 import requests
 ##folderPath = "C:/Users/sean/Dropbox/CU Boulder/Bitcoin/Data/BlockData/"
