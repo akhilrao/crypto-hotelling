@@ -1,4 +1,4 @@
-D = read.csv("C:/Users/seric/Dropbox/CU Boulder/Bitcoin/Data/dataByDay.csv")
+D = read.csv("C:/Users/seric/Dropbox/CU Boulder/Bitcoin/crypto-hotelling/Data/dataByDay.csv")
 D$date = as.Date(D$ymd, "%Y-%m-%d")
 halvings = c(which(D$rewardPerBlock == 25)[1], which(D$rewardPerBlock == 12.5)[1])
 
@@ -39,6 +39,19 @@ start = which(D$year == 2016)[1]; end = which(D$year == 2017)[1]
 rnge = start:end
 
 makePlots(rnge,halvings[2], yearLab = "Year = 2016")
+####
 
 
 
+
+
+rnge = which(format(D$date,"%Y") %in% c(2016,2017))
+D1 = D[rnge, ]
+plot(D1$date, D1$revenuePerGH, type = "l")
+par(new = TRUE)
+plot(D1$date, D1$AvgPrice,xlab = "",ylab = "", xaxt = "n", yaxt = "n", col = "red", type = "l")
+axis(4)
+#
+plot(D1$date, D1$Work, type = "l")
+par(new = TRUE)
+plot(D1$date, D1$AvgPrice)
